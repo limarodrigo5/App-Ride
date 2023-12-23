@@ -48,9 +48,9 @@ for(let i=0;  i<positions.length -1 ; i++ ) {
         Math.sin(deltaLongitude/2) * 
         Math.sin(deltaLongitude/2);
 
-    const angularDistance = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const angularDistance = 2 * Math.atan2(Math.sqrt(sphericalLawTerm), Math.sqrt(1-sphericalLawTerm));
 
-    const distance = earthRadiusKm * c;
+    const distance = earthRadiusKm * angularDistance;
 
     totalDistance += distance;
 
