@@ -40,7 +40,7 @@ for(let i=0;  i<positions.length -1 ; i++ ) {
     const deltaLatitude = toRad(pos2.latitude - pos1.latitude)
     const deltaLongitude = toRad(pos2.longitude - pos1.longitude)
 
-    const a =
+    const sphericalLawTerm =
         Math.sin(deltaLatitude/2) *
         Math.sin(deltaLatitude/2) +
         Math.cos(toRad(pos1.latitude)) * 
@@ -48,7 +48,7 @@ for(let i=0;  i<positions.length -1 ; i++ ) {
         Math.sin(deltaLongitude/2) * 
         Math.sin(deltaLongitude/2);
 
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const angularDistance = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
     const distance = earthRadiusKm * c;
 
